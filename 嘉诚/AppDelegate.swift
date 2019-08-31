@@ -43,13 +43,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let device = NSData(data: deviceToken)
         print(device.description)
         
-        print(device.description.replacingOccurrences(of: "<", with: "").replacingOccurrences(of: ">", with: "").replacingOccurrences(of: " ", with: ""))
+        let pushID = device.description.replacingOccurrences(of: "<", with: "").replacingOccurrences(of: ">", with: "").replacingOccurrences(of: " ", with: "")
+        
+//        print(pushID)
+        
+        ViewController.deviceToken = pushID
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error)
     }
-    
     //处理前台运行时的信息、还有一个也是处理前台的application(_didReceiveRemoteNotification:）{}跟下面前台处理信息的类似，但是没有闭包。还有一点，这个是反对用的。还有一点，下面那个didreceive是前后台都能用的（实现了代理的两个方法后就只有静默实现了好像注意一下），但是后台的话只是会给你悬挂什么的好像目前不太了解。
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         //        let userInfo = notification.request.content.userInfo

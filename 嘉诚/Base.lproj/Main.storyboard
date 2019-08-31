@@ -18,25 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ms-gI-e7x">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="66.5" width="375" height="600.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yON-rN-IEE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="2.5"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9Ms-gI-e7x" firstAttribute="top" secondItem="yON-rN-IEE" secondAttribute="bottom" id="9Ng-uw-cSr"/>
                             <constraint firstItem="9Ms-gI-e7x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qhc-oy-ZVA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Ms-gI-e7x" secondAttribute="trailing" id="Rxl-Ga-2hK"/>
-                            <constraint firstItem="9Ms-gI-e7x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TkR-ex-Aov"/>
+                            <constraint firstItem="9Ms-gI-e7x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2.25" id="TkR-ex-Aov"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9Ms-gI-e7x" secondAttribute="bottom" id="Uej-J3-kxr"/>
+                            <constraint firstAttribute="trailing" secondItem="yON-rN-IEE" secondAttribute="trailing" id="b2I-ca-tZR"/>
+                            <constraint firstItem="yON-rN-IEE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lLf-0Y-9b5"/>
+                            <constraint firstItem="yON-rN-IEE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wkM-40-JZ6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="UBl-NT-eZB"/>
                     <connections>
+                        <outlet property="progressView" destination="yON-rN-IEE" id="lt4-Yv-9eY"/>
                         <outlet property="wkWebView" destination="9Ms-gI-e7x" id="A97-Ah-azn"/>
                     </connections>
                 </viewController>

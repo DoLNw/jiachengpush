@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02EE68172319663A009DD2B8 /* 小叮当.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE68162319663A009DD2B8 /* 小叮当.mp3 */; };
+		02EE682223196A78009DD2B8 /* 05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681823196A77009DD2B8 /* 05.mp3 */; };
+		02EE682323196A78009DD2B8 /* 07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681923196A77009DD2B8 /* 07.mp3 */; };
+		02EE682423196A78009DD2B8 /* 01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681A23196A77009DD2B8 /* 01.mp3 */; };
+		02EE682523196A78009DD2B8 /* 08.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681B23196A77009DD2B8 /* 08.mp3 */; };
+		02EE682623196A78009DD2B8 /* 04.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681C23196A77009DD2B8 /* 04.wav */; };
+		02EE682723196A78009DD2B8 /* 06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681D23196A77009DD2B8 /* 06.mp3 */; };
+		02EE682823196A78009DD2B8 /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681E23196A77009DD2B8 /* 10.wav */; };
+		02EE682923196A78009DD2B8 /* 03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE681F23196A78009DD2B8 /* 03.mp3 */; };
+		02EE682A23196A78009DD2B8 /* 09.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE682023196A78009DD2B8 /* 09.mp3 */; };
+		02EE682B23196A78009DD2B8 /* 02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02EE682123196A78009DD2B8 /* 02.mp3 */; };
+		02EE682E231A3745009DD2B8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EE682D231A3745009DD2B8 /* WebKit.framework */; };
 		02F5E3EA23193D8600F36C1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F5E3E923193D8600F36C1E /* AppDelegate.swift */; };
 		02F5E3EC23193D8600F36C1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F5E3EB23193D8600F36C1E /* ViewController.swift */; };
 		02F5E3EF23193D8600F36C1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F5E3ED23193D8600F36C1E /* Main.storyboard */; };
@@ -16,6 +28,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02EE68162319663A009DD2B8 /* 小叮当.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "小叮当.mp3"; sourceTree = "<group>"; };
+		02EE681823196A77009DD2B8 /* 05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 05.mp3; sourceTree = "<group>"; };
+		02EE681923196A77009DD2B8 /* 07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 07.mp3; sourceTree = "<group>"; };
+		02EE681A23196A77009DD2B8 /* 01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01.mp3; sourceTree = "<group>"; };
+		02EE681B23196A77009DD2B8 /* 08.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 08.mp3; sourceTree = "<group>"; };
+		02EE681C23196A77009DD2B8 /* 04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 04.wav; sourceTree = "<group>"; };
+		02EE681D23196A77009DD2B8 /* 06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 06.mp3; sourceTree = "<group>"; };
+		02EE681E23196A77009DD2B8 /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
+		02EE681F23196A78009DD2B8 /* 03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 03.mp3; sourceTree = "<group>"; };
+		02EE682023196A78009DD2B8 /* 09.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 09.mp3; sourceTree = "<group>"; };
+		02EE682123196A78009DD2B8 /* 02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 02.mp3; sourceTree = "<group>"; };
+		02EE682D231A3745009DD2B8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		02F5E3E623193D8600F36C1E /* 嘉诚.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "嘉诚.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F5E3E923193D8600F36C1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02F5E3EB23193D8600F36C1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,17 +56,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EE682E231A3745009DD2B8 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02EE682C231A3745009DD2B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02EE682D231A3745009DD2B8 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		02F5E3DD23193D8600F36C1E = {
 			isa = PBXGroup;
 			children = (
 				02F5E3E823193D8600F36C1E /* 嘉诚 */,
 				02F5E3E723193D8600F36C1E /* Products */,
+				02EE682C231A3745009DD2B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +97,17 @@
 				02F5E3ED23193D8600F36C1E /* Main.storyboard */,
 				02F5E3FC2319421200F36C1E /* 钟齐陈伟勋硬笔行楷简.ttf */,
 				02F5E3F023193D8600F36C1E /* Assets.xcassets */,
+				02EE68162319663A009DD2B8 /* 小叮当.mp3 */,
+				02EE681A23196A77009DD2B8 /* 01.mp3 */,
+				02EE682123196A78009DD2B8 /* 02.mp3 */,
+				02EE681F23196A78009DD2B8 /* 03.mp3 */,
+				02EE681C23196A77009DD2B8 /* 04.wav */,
+				02EE681823196A77009DD2B8 /* 05.mp3 */,
+				02EE681D23196A77009DD2B8 /* 06.mp3 */,
+				02EE681923196A77009DD2B8 /* 07.mp3 */,
+				02EE681B23196A77009DD2B8 /* 08.mp3 */,
+				02EE682023196A78009DD2B8 /* 09.mp3 */,
+				02EE681E23196A77009DD2B8 /* 10.wav */,
 				02F5E3F223193D8600F36C1E /* LaunchScreen.storyboard */,
 				02F5E3F523193D8600F36C1E /* Info.plist */,
 			);
@@ -102,6 +147,9 @@
 					02F5E3E523193D8600F36C1E = {
 						CreatedOnToolsVersion = 10.3;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -132,10 +180,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EE682923196A78009DD2B8 /* 03.mp3 in Resources */,
+				02EE682623196A78009DD2B8 /* 04.wav in Resources */,
+				02EE682723196A78009DD2B8 /* 06.mp3 in Resources */,
 				02F5E3FD2319422500F36C1E /* 钟齐陈伟勋硬笔行楷简.ttf in Resources */,
+				02EE682823196A78009DD2B8 /* 10.wav in Resources */,
+				02EE682B23196A78009DD2B8 /* 02.mp3 in Resources */,
 				02F5E3F423193D8600F36C1E /* LaunchScreen.storyboard in Resources */,
+				02EE682523196A78009DD2B8 /* 08.mp3 in Resources */,
+				02EE682A23196A78009DD2B8 /* 09.mp3 in Resources */,
+				02EE68172319663A009DD2B8 /* 小叮当.mp3 in Resources */,
 				02F5E3F123193D8600F36C1E /* Assets.xcassets in Resources */,
 				02F5E3EF23193D8600F36C1E /* Main.storyboard in Resources */,
+				02EE682423196A78009DD2B8 /* 01.mp3 in Resources */,
+				02EE682223196A78009DD2B8 /* 05.mp3 in Resources */,
+				02EE682323196A78009DD2B8 /* 07.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

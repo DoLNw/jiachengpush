@@ -10,8 +10,19 @@ import UIKit
 import UserNotifications
 import WebKit
 
+// document.getElementById("suggesstions").value = ""
+// document.getElementById("submit").click()
+
 class ViewController: UIViewController {
     @IBOutlet weak var wkWebView: WKWebView!
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    static var deviceToken = ""
+    
+    var JSOne = ""
+    var JSTwo = ""
+    var JSThree = ""
+    var JSFour = #"document.getElementById("submit").click()"#
     
     @objc func remove(_ sender: UIButton) {
         let center = UNUserNotificationCenter.current()
@@ -26,19 +37,51 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.navigationController?.setNavgationBarTitleTextAttributes(color: .myRed, font: UIFont(name: "chenwixun-jian", size: 25))
+        self.navigationController?.navigationBar.tintColor = UIColor.myRed
+        self.navigationController?.setNavgationBarlargeTitleTextAttributes(color: .myRed, font: UIFont(name: "chenwixun-jian", size: 45))
+        
         self.title = "👪三人行"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        wkWebView.allowsBackForwardNavigationGestures = false
+        wkWebView.allowsBackForwardNavigationGestures = true
         wkWebView.navigationDelegate = self
-        let url = URL(string: "http://jiachengcc07.club/sanrenxingurl.txt")!
+        let url = URL(string: "http://jiachengcc07.club:1707")!
         let request = URLRequest(url: url)
         wkWebView.load(request)
         
-//        let barButton1 = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
-//        let barButton2 = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(remove(_:)))
-//        navigationItem.rightBarButtonItems = [barButton1, barButton2]
+//        progressView = UIProgressView(progressViewStyle: .default)
+//        progressView.sizeToFit()
+//        let progressButton = UIBarButtonItem(customView: progressView)
+//        self.navigationItem.rightBarButtonItem = progressButton
         
+        wkWebView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        wkWebView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
+        
+        
+//        JSOne = #"document.getElementById("deviceToken").value = " "#
+//        JSOne += "\(ViewController.deviceToken)"
+//        JSOne += #" ""#
+        
+        JSTwo = #"document.getElementById("time").value = " "#
+        let today = Date()
+        let zone = NSTimeZone.system
+        let interval = zone.secondsFromGMT()
+        JSTwo += "\(today.addingTimeInterval(TimeInterval(interval)))"
+        JSTwo += #" ""#
+        
+        JSThree = #"document.getElementById("deviceName").value = " "#
+        JSThree += "\(UIDevice.current.name)"
+        JSThree += #" ""#
+        
+//        var i = 0
+//        for family: String in UIFont.familyNames {
+//            print("\(i)---项目字体---\(family)")
+//            for names: String in UIFont.fontNames(forFamilyName: family) {
+//                print("== \(names)")
+//            }
+//            i += 1
+//        }
     }
     
     static var badgeCount = 0;
@@ -106,18 +149,124 @@ extension ViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("finish")
         
-        wkWebView.evaluateJavaScript(#"document.getElementsByTagName("body")[0].innerText"#) { [unowned self] (result, error) in
-            if let _ = error {
-                return
+//        //本来是直接提个txt文件里面写上前缀加网址，但是觉得这样不太好，用一个带链接button来比较好
+//        wkWebView.evaluateJavaScript(#"document.getElementsByTagName("body")[0].innerText"#) { [unowned self] (result, error) in
+//            if let _ = error {
+//                return
+//            }
+//
+//            if let result = result as? String, result.contains("ok it's the url: ") {
+//                let results = result.split(separator: "\n")
+//                var mutableResult = results[0]
+//                for _ in 0 ..< 17 {
+//                    mutableResult.removeFirst()
+//                }
+//                let url = URL(string: String(mutableResult))!
+//                let request = URLRequest(url: url)
+//                self.wkWebView.load(request)
+//            }
+//        }
+        
+//        wkWebView.evaluateJavaScript(#"document.getElementById("jsBtn").onclick()"#) { (result, error) in
+//            if let _ = error {
+//                return
+//            }
+//        }
+    
+        
+        wkWebView.evaluateJavaScript(JSTwo) { [unowned self] (result, error) in
+            if let result = result {
+                print(result)
+                
+                self.wkWebView.evaluateJavaScript(self.JSThree) { (result, error) in
+                    if let result = result {
+                        print(result)
+                        
+                        self.JSOne = #"document.getElementById("deviceToken").value = " "#
+                        self.JSOne += "\(ViewController.deviceToken)"
+                        self.JSOne += #" ""#
+                        self.wkWebView.evaluateJavaScript(self.JSOne) { (result, error) in
+                            if let result = result {
+                                print(result)
+                                
+                                self.wkWebView.evaluateJavaScript(self.JSFour) { (result, error) in
+                                    if let result = result {
+                                        print(result)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            
-            if let result = result as? String, result.contains("jiachengcc07.club") {
-                let url = URL(string: result)!
-                let request = URLRequest(url: url)
-                self.wkWebView.load(request)
+        }
+    }
+    
+    // 在发送请求之前，决定是否跳转
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if (navigationAction.targetFrame == nil) {
+            webView.load(navigationAction.request)
+        }
+        
+        decisionHandler(.allow)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            progressView.progress = Float(wkWebView.estimatedProgress)
+        } else if keyPath == "title" {
+            if let title = wkWebView.title {
+//                print(title)
+                self.title = title
             }
         }
     }
 }
 
+
+
+extension UIColor {
+    static var myGreen: UIColor {
+        return UIColor(displayP3Red: 0.196, green: 0.604, blue: 0.357, alpha: 1)
+    }
+    
+    static var myBlue: UIColor {
+        return UIColor(displayP3Red: 0.184, green: 0.536, blue: 0.892, alpha: 1)
+    }
+    
+    static var myRed: UIColor {
+        return UIColor(displayP3Red: 0.898, green: 0.399, blue: 0.429, alpha: 1)
+    }
+}
+
+extension UINavigationController {
+    
+    public func setNavgationBarlargeTitleTextAttributes(color: UIColor?, font: UIFont?) {
+        
+        var textAttributes: [NSAttributedString.Key: AnyObject] = [:]
+        
+        if let c = color {
+            textAttributes[NSAttributedString.Key.foregroundColor] = c
+        }
+        if let f = font {
+            textAttributes[.font] = f
+        }
+        
+        self.navigationBar.largeTitleTextAttributes = textAttributes
+    }
+    
+    public func setNavgationBarTitleTextAttributes(color: UIColor?, font: UIFont?) {
+        
+        var textAttributes: [NSAttributedString.Key: AnyObject] = [:]
+        
+        if let c = color {
+            textAttributes[NSAttributedString.Key.foregroundColor] = c
+        }
+        if let f = font {
+            textAttributes[.font] = f
+        }
+        
+        self.navigationBar.titleTextAttributes = textAttributes
+    }
+}
 
